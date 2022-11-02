@@ -132,3 +132,13 @@ firebase deploy
 ```
 
 
+# カスタマイズ
+
+
+## zenn-editorのインストール
+
+- docker-compose起動後に実行
+```sh
+docker-compose exec app yarn add zenn-markdown-html zenn-content-css zenn-embed-elements
+```
+

@@ -11,6 +11,7 @@ import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
 import type PostType from '../../interfaces/post'
+import { useEffect } from 'react'
 
 type Props = {
   post: PostType
@@ -23,6 +24,9 @@ export default function Post({ post, morePosts, preview }: Props) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
+  useEffect(() => {
+    import('zenn-embed-elements')
+  }, [])
   return (
     <Layout preview={preview}>
       <Container>
@@ -37,6 +41,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                   {post.title} | Next.js Blog Example with {CMS_NAME}
                 </title>
                 <meta property="og:image" content={post.ogImage.url} />
+                <script src="https://embed.zenn.studio/js/listen-embed-event.js"></script>
               </Head>
               <PostHeader
                 title={post.title}
