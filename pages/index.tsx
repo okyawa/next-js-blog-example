@@ -20,7 +20,6 @@ export default function Index({ allPosts }: Props) {
       <Layout>
         <Head>
           <title>Next.js Blog Example with {CMS_NAME}</title>
-          <meta name="robots" content="noindex" />
         </Head>
         <Container>
           <Intro />
