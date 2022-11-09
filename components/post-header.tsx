@@ -9,15 +9,22 @@ type Props = {
   coverImage: string
   date: string
   author: Author
+  tags: string[]
 }
 
-const PostHeader = ({ title, coverImage, date, author }: Props) => {
+const PostHeader = ({ title, coverImage, date, author, tags }: Props) => {
+console.log('tags ========= ', tags);
   return (
     <>
       <PostTitle>{title}</PostTitle>
       <div className="hidden md:block md:mb-12">
         <Avatar name={author.name} picture={author.picture} />
       </div>
+      <ul className="flex gap-x-2">
+        {
+          // tags.map((tag) => <li className="font-bold mb-12">{tag}</li>)
+        }
+      </ul>
       <div className="mb-8 md:mb-16 sm:mx-0">
         <CoverImage title={title} src={coverImage} />
       </div>
